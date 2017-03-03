@@ -1,0 +1,37 @@
+page-login {
+
+
+
+        $background-color: rgb(124, 25, 18);
+        $input-and-buttons: rgba(165,25,18,.5);
+
+
+    .background{
+        background-color: $background-color;
+    }
+
+    .logoImg{
+        margin-top: 20%;
+    }
+
+    .form{
+        margin-top:30%;
+    }
+
+    .form-input{
+        background-color: $input-and-buttons;
+        border-radius: 6px;
+        color:white;
+        width:100%;
+        padding:10px;
+    }
+
+    .button-login{
+        margin-top:10%;
+        background-color: $input-and-buttons;
+    }
+
+    .button-login:active{
+        background-color: $background-color;
+    }
+}
