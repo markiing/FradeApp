@@ -1,5 +1,9 @@
-import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { Component, OnInit } from '@angular/core';
+import { NavController, NavParams, AlertController } from 'ionic-angular';
+import {Observable} from 'rxjs/Observable';
+import {Usuario} from '../../model/Usuario';
+import {HomePage} from '../home/home';
+import {UsuarioService} from '../../service/UsuarioService';
 
 /*
   Generated class for the Login page.
@@ -9,14 +13,38 @@ import { NavController, NavParams } from 'ionic-angular';
 */
 @Component({
   selector: 'page-login',
-  templateUrl: 'login.html'
+  templateUrl: 'login.html',
+  providers: [UsuarioService]
 })
-export class LoginPage {
+export class LoginPage implements OnInit {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  credentials = {user:"", password:""};
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
+  constructor(public navCtrl: NavController, public navParams: NavParams, private _alertController:AlertController,private _usuarioService:UsuarioService) {}
+
+  ngOnInit(){
+    this._usuarioService.logout();
+  }
+
+  logar(){
+    this._usuarioService.logar(this.credentials.user, this.credentials.password)
+      .subscribe(
+        data =>{
+            this.navCtrl.push(HomePage);
+        },
+        error =>{
+          this.exibirAlert("Usuário ou senha incorreta :(");
+        }
+      )
+  }
+
+  exibirAlert(mensagem){
+    let alert = this._alertController.create({
+      title: 'Atenção',
+      subTitle: mensagem,
+      buttons: ['OK']
+    });
+    alert.present();
   }
 
 }

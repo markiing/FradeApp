@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { NavController } from 'ionic-angular';
 
@@ -6,10 +6,13 @@ import { NavController } from 'ionic-angular';
   selector: 'page-home',
   templateUrl: 'home.html'
 })
-export class HomePage {
+export class HomePage implements OnInit {
 
   constructor(public navCtrl: NavController) {
     
+  }
+  ngOnInit(){
+    console.log(JSON.parse(localStorage.getItem("currentUser")));
   }
 
 }

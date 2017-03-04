@@ -5,12 +5,12 @@
   </div>
 
   <div class="form">
-    <form>
+    <form (ngSubmit)="logar()">
       <ion-label class="item item-input item-floating-label form-input">
-        <ion-input name="title" placeholder="Usuário"></ion-input>
+        <ion-input name="usuario" [(ngModel)]="credentials.user" placeholder="Usuário"></ion-input>
       </ion-label>
       <ion-label class="item item-input item-floating-label form-input">
-        <ion-input name="title" type="password" placeholder="Senha"></ion-input>
+        <ion-input name="senha" type="password" [(ngModel)]="credentials.password" placeholder="Senha"></ion-input>
       </ion-label>
       <button ion-button color="danger" class="button-login" type="submit" block>Entrar</button>
     </form>
