@@ -1,6 +1,18 @@
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+    <div class="logo">
+      <img src="../../assets/imgs/logo_03.png" width="70"/>
+    </div>
+    <div class="novo-chamado">
+      <button ion-button class="btn" color="danger">Novo Chamado</button>
+    </div>
+    <div class="list-chamados">
+      <h3>Meus Chamados</h3>
+      <ion-list>
+        <button ion-item *ngFor="let chamado of _chamados" (click)="abrirDetalhes(chamado)">
+            <div class="founded-items">
+              #<b>{{chamado.codigo}}</b>. {{chamado.titulo}} <p style="float:right"><b>Status:</b> {{chamado.statusChamado.status}}
+          </div>
+        </button>
+      </ion-list>
+    </div>
 </ion-content>

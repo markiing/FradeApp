@@ -2,14 +2,15 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import {HttpModule, JsonpModule} from '@angular/http';
-import { HomePage } from '../pages/home/home';
+import { HomePage,ModalContentPage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    LoginPage
+    LoginPage,
+    ModalContentPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -18,7 +19,8 @@ import { LoginPage } from '../pages/login/login';
   entryComponents: [
     MyApp,
     HomePage,
-    LoginPage
+    LoginPage,
+    ModalContentPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })

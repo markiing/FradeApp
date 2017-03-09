@@ -1,3 +1,29 @@
 page-home {
 
+    $background-color: rgb(124, 25, 18);
+
+    .background{
+        background-color:  $background-color;
+    }
+
+    .novo-chamado{
+        margin-top:5%;
+    }
+    .novo-chamado .btn{
+        width:100%;
+    }
+    .logo{
+        margin-left:38%;
+    }
+
+    .list-chamados{
+        margin-top:8%;
+    }
+
+    .list-chamados h3{
+        color: $background-color;
+        text-align:center;
+        font-weight: bolder;
+    }
+
 }
